@@ -1,0 +1,47 @@
+{% extends 'blog/base.html' %}
+{% block title %}All Reviews – CineAI{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <h1>Movie Reviews</h1>
+    <p>Community reviews powered by AI sentiment analysis</p>
+    {% if user.is_authenticated %}
+    <a href="/blog/create/" class="btn btn-primary-cine mt-2"><i class="fas fa-pen me-2"></i>Write a Review</a>
+    {% endif %}
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    {% if posts %}
+    <div class="row g-4">
+      {% for post in posts %}
+      <div class="col-lg-4 col-md-6">
+        <div class="card-dark p-3 h-100 d-flex flex-column">
+          <div class="d-flex justify-content-between align-items-center mb-2">
+            <span class="badge bg-secondary">{{ post.movie_title }}</span>
+            <span class="sentiment-badge sentiment-{{ post.sentiment }}">{{ post.sentiment|title }}</span>
+          </div>
+          <h5><a href="/blog/{{ post.pk }}/" style="color:#fff;text-decoration:none;">{{ post.title }}</a></h5>
+          <div class="rating-stars mb-2" style="font-size:.9rem;">{{ post.stars }}</div>
+          <p style="color:var(--muted);font-size:.9rem;flex:1;">{{ post.content|truncatewords:30 }}</p>
+          <div class="d-flex justify-content-between align-items-center mt-3">
+            <small style="color:rgba(255,255,255,.4)">{{ post.author.username }} · {{ post.created_at|date:"M d, Y" }}</small>
+            <a href="/blog/{{ post.pk }}/" class="btn btn-sm btn-outline-cine">Read →</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="text-center py-5" style="color:var(--muted)">
+      <i class="fas fa-film fa-3x mb-3" style="color:var(--primary)"></i>
+      <p>No reviews yet!</p>
+      {% if user.is_authenticated %}
+      <a href="/blog/create/" class="btn btn-primary-cine">Write the First Review</a>
+      {% endif %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

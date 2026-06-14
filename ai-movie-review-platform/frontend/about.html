@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About – CineAI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span class="brand-cine">CINE</span><span class="brand-ai">AI</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#sentiment">AI Analyzer</a></li>
+        <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-2"><a class="btn btn-cta" href="http://127.0.0.1:8000/login/">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container text-center">
+    <h1 class="page-hero-title">About CineAI</h1>
+    <p class="page-hero-sub">A full-stack AI-powered movie review ecosystem</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row align-items-center g-5 mb-5">
+      <div class="col-lg-6">
+        <span class="section-label">OUR MISSION</span>
+        <h2 class="section-title">What is CineAI?</h2>
+        <p class="text-muted">CineAI is a comprehensive movie review platform that combines traditional web technologies with modern AI capabilities. Users can browse movies, read and write reviews, and get instant AI-powered sentiment analysis on any review text.</p>
+        <p class="text-muted">The platform demonstrates a complete full-stack architecture spanning HTML/Bootstrap frontend, Flask REST API, FastAPI ML service, and a Django-powered blog system.</p>
+      </div>
+      <div class="col-lg-6">
+        <div class="tech-stack-box">
+          <div class="tech-item"><i class="fab fa-html5"></i><span>HTML5 + Bootstrap</span></div>
+          <div class="tech-item"><i class="fab fa-python"></i><span>Flask REST API</span></div>
+          <div class="tech-item"><i class="fas fa-bolt"></i><span>FastAPI + ML</span></div>
+          <div class="tech-item"><i class="fas fa-server"></i><span>Django + DRF</span></div>
+          <div class="tech-item"><i class="fas fa-brain"></i><span>TextBlob / sklearn</span></div>
+          <div class="tech-item"><i class="fas fa-database"></i><span>SQLite Database</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-header text-center mb-4">
+      <span class="section-label">ARCHITECTURE</span>
+      <h2 class="section-title">System Flow</h2>
+    </div>
+    <div class="row g-3 text-center">
+      <div class="col-md-2"><div class="flow-step"><i class="fas fa-user fa-2x mb-2"></i><p>User</p></div></div>
+      <div class="col-md-1 d-flex align-items-center justify-content-center"><i class="fas fa-arrow-right fa-lg text-warning"></i></div>
+      <div class="col-md-2"><div class="flow-step"><i class="fas fa-globe fa-2x mb-2"></i><p>Frontend</p></div></div>
+      <div class="col-md-1 d-flex align-items-center justify-content-center"><i class="fas fa-arrow-right fa-lg text-warning"></i></div>
+      <div class="col-md-2"><div class="flow-step"><i class="fas fa-brain fa-2x mb-2"></i><p>FastAPI AI</p></div></div>
+      <div class="col-md-1 d-flex align-items-center justify-content-center"><i class="fas fa-arrow-right fa-lg text-warning"></i></div>
+      <div class="col-md-2"><div class="flow-step"><i class="fas fa-blog fa-2x mb-2"></i><p>Django Blog</p></div></div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container text-center">
+    <h4 class="footer-brand"><span class="brand-cine">CINE</span><span class="brand-ai">AI</span></h4>
+    <p class="footer-copy">© 2025 CineAI Platform. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

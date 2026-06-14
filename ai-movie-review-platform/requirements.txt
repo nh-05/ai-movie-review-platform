@@ -1,0 +1,21 @@
+# CineAI Platform – Root Requirements
+# Install all dependencies before running each service
+
+# ── Flask ──────────────────────────────────────────────────────────────────
+flask==3.0.2
+flask-cors==4.0.0
+
+# ── FastAPI ────────────────────────────────────────────────────────────────
+fastapi==0.110.0
+uvicorn==0.27.1
+pydantic==2.6.3
+
+# ── ML / NLP ───────────────────────────────────────────────────────────────
+textblob==0.18.0
+scikit-learn==1.4.1
+numpy==1.26.4
+
+# ── Django ─────────────────────────────────────────────────────────────────
+django==5.0.3
+djangorestframework==3.15.1
+django-cors-headers==4.3.1

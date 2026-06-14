@@ -1,0 +1,10 @@
+[
+  { "movie": "The Lion King", "rating": 9.0, "genre": "Animation · Drama", "year": 1994, "director": "Roger Allers & Rob Minkoff" },
+  { "movie": "Frozen", "rating": 8.5, "genre": "Animation · Musical", "year": 2013, "director": "Chris Buck & Jennifer Lee" },
+  { "movie": "Moana", "rating": 8.7, "genre": "Animation · Adventure", "year": 2016, "director": "Ron Clements & John Musker" },
+  { "movie": "Beauty and the Beast", "rating": 8.8, "genre": "Animation · Romance", "year": 1991, "director": "Gary Trousdale & Kirk Wise" },
+  { "movie": "Aladdin", "rating": 8.6, "genre": "Animation · Comedy", "year": 1992, "director": "Ron Clements & John Musker" },
+  { "movie": "Encanto", "rating": 8.3, "genre": "Animation · Musical", "year": 2021, "director": "Jared Bush & Byron Howard" },
+  { "movie": "Zootopia", "rating": 8.7, "genre": "Animation · Comedy", "year": 2016, "director": "Byron Howard & Rich Moore" },
+  { "movie": "Ratatouille", "rating": 9.1, "genre": "Animation · Comedy", "year": 2007, "director": "Brad Bird" }
+]

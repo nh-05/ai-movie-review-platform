@@ -1,0 +1,39 @@
+{% extends 'blog/base.html' %}
+{% block title %}Register – CineAI{% endblock %}
+{% block content %}
+<section class="py-5 mt-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-5 col-md-7">
+        <div class="card-dark p-4">
+          <div class="text-center mb-4">
+            <h2 style="font-family:'Bebas Neue',cursive;font-size:2.5rem;">
+              <span style="color:#fff">CINE</span><span style="color:var(--primary)">AI</span>
+            </h2>
+            <p style="color:var(--muted)">Create your account</p>
+          </div>
+          <form method="post">
+            {% csrf_token %}
+            {% for field in form %}
+            <div class="mb-3">
+              <label class="form-label">{{ field.label }}</label>
+              {{ field }}
+              {% if field.errors %}
+              <div style="color:var(--primary);font-size:.8rem;margin-top:.3rem;">{{ field.errors.0 }}</div>
+              {% endif %}
+              {% if field.help_text %}
+              <small style="color:rgba(255,255,255,.3);font-size:.75rem;">{{ field.help_text }}</small>
+              {% endif %}
+            </div>
+            {% endfor %}
+            <button type="submit" class="btn btn-primary-cine w-100">Create Account</button>
+          </form>
+          <p class="text-center mt-3" style="color:var(--muted);font-size:.9rem;">
+            Already have an account? <a href="/login/" style="color:var(--primary)">Login</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

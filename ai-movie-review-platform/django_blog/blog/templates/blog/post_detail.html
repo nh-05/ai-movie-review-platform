@@ -1,0 +1,38 @@
+{% extends 'blog/base.html' %}
+{% block title %}{{ post.title }} – CineAI{% endblock %}
+{% block content %}
+<section class="page-hero">
+  <div class="container">
+    <span style="color:var(--primary);font-size:.75rem;font-weight:700;letter-spacing:3px;">{{ post.movie_title|upper }}</span>
+    <h1>{{ post.title }}</h1>
+    <div class="d-flex align-items-center gap-3 mt-2">
+      <span class="rating-stars">{{ post.stars }}</span>
+      <span class="sentiment-badge sentiment-{{ post.sentiment }}">{{ post.sentiment|title }}</span>
+      <small style="color:var(--muted)">by {{ post.author.username }} · {{ post.created_at|date:"F d, Y" }}</small>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="card-dark p-4 mb-4" style="line-height:1.8;color:rgba(255,255,255,.85);">
+          {{ post.content|linebreaks }}
+        </div>
+
+        {% if user.is_authenticated and user == post.author %}
+        <div class="d-flex gap-2">
+          <a href="/blog/{{ post.pk }}/edit/" class="btn btn-outline-warning"><i class="fas fa-edit me-1"></i>Edit</a>
+          <a href="/blog/{{ post.pk }}/delete/" class="btn btn-outline-danger"><i class="fas fa-trash me-1"></i>Delete</a>
+        </div>
+        {% endif %}
+
+        <div class="mt-4">
+          <a href="/blog/" style="color:var(--muted);text-decoration:none;">← Back to all reviews</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{% endblock %}

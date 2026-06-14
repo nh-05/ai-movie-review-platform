@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact – CineAI</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg fixed-top scrolled" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span class="brand-cine">CINE</span><span class="brand-ai">AI</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="index.html#sentiment">AI Analyzer</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link active" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-2"><a class="btn btn-cta" href="http://127.0.0.1:8000/login/">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<section class="page-hero">
+  <div class="container text-center">
+    <h1 class="page-hero-title">Contact Us</h1>
+    <p class="page-hero-sub">We'd love to hear from you — send us a message</p>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center g-5">
+      <div class="col-lg-5">
+        <div class="contact-info-box">
+          <h4 class="mb-4">Get In Touch</h4>
+          <div class="contact-info-item">
+            <i class="fas fa-envelope text-warning"></i>
+            <div><strong>Email</strong><p>support@cineai.com</p></div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-phone text-warning"></i>
+            <div><strong>Phone</strong><p>+91 98765 43210</p></div>
+          </div>
+          <div class="contact-info-item">
+            <i class="fas fa-map-marker-alt text-warning"></i>
+            <div><strong>Location</strong><p>Mumbai, Maharashtra, India</p></div>
+          </div>
+          <hr class="my-4"/>
+          <div class="d-flex gap-3">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="review-form-box">
+          <h4><i class="fas fa-envelope me-2 text-warning"></i>Send a Message</h4>
+          <form id="contactForm" novalidate>
+            <div class="row g-3">
+              <div class="col-md-6">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" id="contactName" placeholder="Your name" required/>
+                <div class="invalid-feedback">Please enter your full name.</div>
+              </div>
+              <div class="col-md-6">
+                <label class="form-label">Email *</label>
+                <input type="email" class="form-control" id="contactEmail" placeholder="your@email.com" required/>
+                <div class="invalid-feedback">Please enter a valid email address.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Mobile Number *</label>
+                <input type="tel" class="form-control" id="contactMobile" placeholder="10-digit mobile number" required/>
+                <div class="invalid-feedback" id="contactMobileFeedback">Please enter a valid 10-digit mobile number.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Subject *</label>
+                <input type="text" class="form-control" id="contactSubject" placeholder="Message subject" required/>
+                <div class="invalid-feedback">Please enter a subject.</div>
+              </div>
+              <div class="col-12">
+                <label class="form-label">Message *</label>
+                <textarea class="form-control" id="contactMessage" rows="5" placeholder="Your message..." required></textarea>
+                <div class="invalid-feedback">Please write your message.</div>
+              </div>
+              <div class="col-12">
+                <button type="submit" class="btn btn-analyze w-100">
+                  <i class="fas fa-paper-plane me-2"></i>Send Message
+                </button>
+              </div>
+            </div>
+          </form>
+          <div id="contactSuccess" class="alert alert-success mt-3 d-none">
+            <i class="fas fa-check-circle me-2"></i>Message sent successfully! We'll get back to you soon.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="container text-center">
+    <h4 class="footer-brand"><span class="brand-cine">CINE</span><span class="brand-ai">AI</span></h4>
+    <p class="footer-copy">© 2025 CineAI Platform. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/validation.js"></script>
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const valid = validateContactForm();
+  if (valid) {
+    document.getElementById('contactSuccess').classList.remove('d-none');
+    this.reset();
+  }
+});
+
+function validateContactForm() {
+  let valid = true;
+  const name = document.getElementById('contactName');
+  const email = document.getElementById('contactEmail');
+  const mobile = document.getElementById('contactMobile');
+  const subject = document.getElementById('contactSubject');
+  const message = document.getElementById('contactMessage');
+  [name, email, subject, message].forEach(f => {
+    if (!f.value.trim()) { f.classList.add('is-invalid'); valid = false; }
+    else f.classList.remove('is-invalid');
+  });
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    email.classList.add('is-invalid'); valid = false;
+  }
+  if (!/^[6-9]\d{9}$/.test(mobile.value.trim())) {
+    mobile.classList.add('is-invalid');
+    document.getElementById('contactMobileFeedback').textContent = 'Enter a valid 10-digit Indian mobile number.';
+    valid = false;
+  } else mobile.classList.remove('is-invalid');
+  return valid;
+}
+</script>
+</body>
+</html>

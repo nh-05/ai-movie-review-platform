@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{% block title %}CineAI Blog{% endblock %}</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <style>
+    :root { --primary:#e94560; --dark:#0a0a0f; --dark2:#12121a; --dark3:#1c1c28; --gold:#f5c518; --muted:#a0a0b0; }
+    * { box-sizing:border-box; }
+    body { background:var(--dark); color:#fff; font-family:'DM Sans',sans-serif; min-height:100vh; }
+    .navbar { background:var(--dark2)!important; border-bottom:1px solid rgba(255,255,255,.06); }
+    .navbar-brand { font-family:'Bebas Neue',cursive; font-size:1.8rem; letter-spacing:2px; }
+    .brand-cine { color:#fff; } .brand-ai { color:var(--primary); }
+    .nav-link { color:rgba(255,255,255,.75)!important; font-weight:500; }
+    .nav-link:hover, .nav-link.active { color:var(--gold)!important; }
+    .btn-cta { background:var(--primary); color:#fff!important; border:none; padding:.4rem 1.2rem; border-radius:4px; font-weight:600; }
+    .btn-cta:hover { background:#c73650; }
+    .page-hero { background:linear-gradient(135deg,var(--dark2),var(--dark3)); padding:5rem 0 3rem; border-bottom:1px solid rgba(255,255,255,.05); }
+    .page-hero h1 { font-family:'Bebas Neue',cursive; font-size:3rem; }
+    .page-hero p { color:var(--muted); }
+    .card-dark { background:var(--dark3); border:1px solid rgba(255,255,255,.05); border-radius:12px; }
+    .form-control, .form-select { background:var(--dark2)!important; color:#fff!important; border:1px solid rgba(255,255,255,.12)!important; border-radius:8px; }
+    .form-control:focus, .form-select:focus { border-color:var(--primary)!important; box-shadow:0 0 0 3px rgba(233,69,96,.15)!important; }
+    .form-control::placeholder { color:rgba(255,255,255,.3)!important; }
+    .form-label { color:rgba(255,255,255,.7); font-size:.85rem; font-weight:500; }
+    .form-select option { background:var(--dark2); }
+    .btn-primary-cine { background:var(--primary); color:#fff; border:none; padding:.65rem 2rem; border-radius:8px; font-weight:600; transition:all .2s; }
+    .btn-primary-cine:hover { background:#c73650; color:#fff; transform:translateY(-1px); }
+    .btn-outline-cine { border:2px solid var(--primary); color:var(--primary); background:transparent; padding:.6rem 1.5rem; border-radius:8px; font-weight:600; transition:all .2s; }
+    .btn-outline-cine:hover { background:var(--primary); color:#fff; }
+    .site-footer { background:var(--dark2); border-top:1px solid rgba(255,255,255,.05); padding:2rem 0; margin-top:auto; }
+    .site-footer p { color:var(--muted); font-size:.85rem; margin:0; }
+    .alert { border-radius:8px; }
+    .sentiment-badge { padding:.25rem .7rem; border-radius:20px; font-size:.7rem; font-weight:700; letter-spacing:1px; }
+    .sentiment-positive { background:rgba(40,199,111,.15); color:#28c76f; }
+    .sentiment-negative { background:rgba(233,69,96,.15); color:var(--primary); }
+    .sentiment-neutral  { background:rgba(245,197,24,.15); color:var(--gold); }
+    .rating-stars { color:var(--gold); }
+  </style>
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="d-flex flex-column">
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand" href="/"><span class="brand-cine">CINE</span><span class="brand-ai">AI</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon" style="filter:invert(1)"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto align-items-center">
+        <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="/blog/">Reviews</a></li>
+        {% if user.is_authenticated %}
+        <li class="nav-item"><a class="nav-link" href="/blog/create/">+ Write Review</a></li>
+        <li class="nav-item"><span class="nav-link text-warning">{{ user.username }}</span></li>
+        <li class="nav-item"><a class="btn btn-outline-secondary btn-sm ms-2" href="/logout/">Logout</a></li>
+        {% else %}
+        <li class="nav-item"><a class="nav-link" href="/login/">Login</a></li>
+        <li class="nav-item ms-2"><a class="btn btn-cta" href="/register/">Register</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+{% if messages %}
+<div class="container mt-3">
+  {% for message in messages %}
+  <div class="alert alert-{% if message.tags == 'error' %}danger{% else %}{{ message.tags }}{% endif %} alert-dismissible fade show">
+    {{ message }}
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+
+{% block content %}{% endblock %}
+
+<footer class="site-footer mt-5">
+  <div class="container text-center">
+    <p>© 2025 <span style="color:var(--primary)">CineAI</span> Blog — Powered by Django + DRF</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+{% block extra_js %}{% endblock %}
+</body>
+</html>

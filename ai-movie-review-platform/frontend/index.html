@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CineAI – AI Movie Review Platform</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@300;400;500&family=Playfair+Display:ital@1&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand" href="index.html"><span class="brand-cine">CINE</span><span class="brand-ai">AI</span></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link active" href="index.html">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="reviews.html">Reviews</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sentiment">AI Analyzer</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+        <li class="nav-item ms-2"><a class="btn btn-cta" href="http://127.0.0.1:8000/login/">Login</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO CAROUSEL -->
+<section id="heroCarousel" class="carousel slide carousel-fade hero-carousel" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1"></button>
+    <button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2"></button>
+  </div>
+  <div class="carousel-inner">
+    <div class="carousel-item active" style="background-image: url('images/banner.jpg');">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <p class="carousel-tag">NOW TRENDING</p>
+        <h1 class="carousel-title">The Lion King</h1>
+        <p class="carousel-sub">A young lion prince flees his kingdom after the murder of his father, only to return years later to reclaim what is his.</p>
+        <div class="rating-stars mb-3">★★★★★ <span>9.0 / 10</span></div>
+        <a href="reviews.html" class="btn btn-hero me-2">Read Reviews</a>
+        <a href="#trailer" class="btn btn-hero-outline">▶ Watch Trailer</a>
+      </div>
+    </div>
+    <div class="carousel-item" style="background-image: url('images/movie1.jpg');">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <p class="carousel-tag">MUST WATCH</p>
+        <h1 class="carousel-title">Frozen</h1>
+        <p class="carousel-sub">A fearless princess sets off on an epic journey with a rugged iceman to find her estranged sister.</p>
+        <div class="rating-stars mb-3">★★★★☆ <span>8.5 / 10</span></div>
+        <a href="reviews.html" class="btn btn-hero me-2">Read Reviews</a>
+        <a href="#trailer" class="btn btn-hero-outline">▶ Watch Trailer</a>
+      </div>
+    </div>
+    <div class="carousel-item" style="background-image: url('images/movie2.jpg');">
+      <div class="carousel-overlay"></div>
+      <div class="carousel-caption">
+        <p class="carousel-tag">AUDIENCE FAVORITE</p>
+        <h1 class="carousel-title">Beauty and the Beast</h1>
+        <p class="carousel-sub">An enchanted prince and a young woman discover that love is found in the most unexpected places.</p>
+        <div class="rating-stars mb-3">★★★★★ <span>8.8 / 10</span></div>
+        <a href="reviews.html" class="btn btn-hero me-2">Read Reviews</a>
+        <a href="#trailer" class="btn btn-hero-outline">▶ Watch Trailer</a>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</section>
+
+<!-- TRENDING SECTION -->
+<section class="trending-section py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">HOT RIGHT NOW</span>
+      <h2 class="section-title">Trending Movies</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-3 col-md-6">
+        <div class="movie-card">
+          <div class="movie-poster">
+            <img class="movie-poster-img"
+                 src="https://upload.wikimedia.org/wikipedia/en/3/3d/The_Lion_King_poster.jpg"
+                 alt="The Lion King"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#f5a623,#e94560)'"/>
+            <div class="movie-poster-gradient"></div>
+            <div class="movie-score">9.0</div>
+            <span class="movie-badge">ANIMATION</span>
+            <div class="movie-poster-info">
+              <h5>The Lion King</h5>
+              <small>★★★★★ · 1994</small>
+            </div>
+            <div class="movie-overlay"><a href="reviews.html" class="btn btn-sm btn-light fw-bold">Reviews</a></div>
+          </div>
+          <div class="movie-info">
+            <p>Animation · Drama · 1994</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="movie-card">
+          <div class="movie-poster">
+            <img class="movie-poster-img"
+                 src="https://upload.wikimedia.org/wikipedia/en/0/05/Frozen_%282013_film%29_poster.jpg"
+                 alt="Frozen"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#4fc3f7,#0288d1)'"/>
+            <div class="movie-poster-gradient"></div>
+            <div class="movie-score">8.5</div>
+            <span class="movie-badge">MUSICAL</span>
+            <div class="movie-poster-info">
+              <h5>Frozen</h5>
+              <small>★★★★☆ · 2013</small>
+            </div>
+            <div class="movie-overlay"><a href="reviews.html" class="btn btn-sm btn-light fw-bold">Reviews</a></div>
+          </div>
+          <div class="movie-info">
+            <p>Animation · Musical · 2013</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="movie-card">
+          <div class="movie-poster">
+            <img class="movie-poster-img"
+                 src="https://upload.wikimedia.org/wikipedia/en/3/3c/Moana_%282016_film%29_poster.jpg"
+                 alt="Moana"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#26a69a,#00695c)'"/>
+            <div class="movie-poster-gradient"></div>
+            <div class="movie-score">8.7</div>
+            <span class="movie-badge">ADVENTURE</span>
+            <div class="movie-poster-info">
+              <h5>Moana</h5>
+              <small>★★★★☆ · 2016</small>
+            </div>
+            <div class="movie-overlay"><a href="reviews.html" class="btn btn-sm btn-light fw-bold">Reviews</a></div>
+          </div>
+          <div class="movie-info">
+            <p>Animation · Adventure · 2016</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="movie-card">
+          <div class="movie-poster">
+            <img class="movie-poster-img"
+                 src="https://upload.wikimedia.org/wikipedia/en/5/5e/Beauty_and_the_Beast_%282017%29_poster.jpg"
+                 alt="Beauty and the Beast"
+                 onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg,#ec407a,#7b1fa2)'"/>
+            <div class="movie-poster-gradient"></div>
+            <div class="movie-score">8.8</div>
+            <span class="movie-badge">ROMANCE</span>
+            <div class="movie-poster-info">
+              <h5>Beauty and the Beast</h5>
+              <small>★★★★★ · 1991</small>
+            </div>
+            <div class="movie-overlay"><a href="reviews.html" class="btn btn-sm btn-light fw-bold">Reviews</a></div>
+          </div>
+          <div class="movie-info">
+            <p>Animation · Romance · 1991</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TRAILER SECTION -->
+<section id="trailer" class="trailer-section py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">WATCH NOW</span>
+      <h2 class="section-title">Featured Trailers</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-6">
+        <div class="trailer-card">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/4sj1MT05lAA" title="The Lion King Trailer" allowfullscreen></iframe>
+          </div>
+          <div class="trailer-info">
+            <h5>The Lion King — Official Trailer</h5>
+            <span class="badge bg-warning text-dark">1994</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="trailer-card">
+          <div class="ratio ratio-16x9">
+            <iframe src="https://www.youtube.com/embed/TbQm5doF_Uc" title="Frozen Trailer" allowfullscreen></iframe>
+          </div>
+          <div class="trailer-info">
+            <h5>Frozen — Official Trailer</h5>
+            <span class="badge bg-warning text-dark">2013</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AI SENTIMENT SECTION -->
+<section id="sentiment" class="sentiment-section py-5">
+  <div class="container">
+    <div class="section-header text-center">
+      <span class="section-label">POWERED BY AI</span>
+      <h2 class="section-title">Sentiment Analyzer</h2>
+      <p class="section-desc">Type your movie review and our AI will instantly analyze its sentiment.</p>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-7">
+        <div class="sentiment-box">
+          <textarea id="sentimentInput" class="form-control sentiment-input" rows="4" placeholder="e.g. This movie was absolutely mind-blowing and visually stunning!"></textarea>
+          <button class="btn btn-analyze mt-3 w-100" onclick="analyzeSentiment()">
+            <i class="fas fa-brain me-2"></i> Analyze with AI
+          </button>
+          <div id="sentimentResult" class="sentiment-result mt-3 d-none"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECENT REVIEWS -->
+<section class="reviews-section py-5">
+  <div class="container">
+    <div class="section-header">
+      <span class="section-label">COMMUNITY PICKS</span>
+      <h2 class="section-title">Recent Reviews</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">JD</div>
+            <div>
+              <h6>John Doe</h6>
+              <small>The Lion King · ★★★★★</small>
+            </div>
+            <span class="review-sentiment positive">Positive</span>
+          </div>
+          <p>"Hakuna Matata! An absolute classic that never gets old. The music, animation and story are all perfect — a timeless masterpiece!"</p>
+          <small class="text-muted">May 2, 2025</small>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">SM</div>
+            <div>
+              <h6>Sara Mills</h6>
+              <small>Frozen · ★★★★☆</small>
+            </div>
+            <span class="review-sentiment positive">Positive</span>
+          </div>
+          <p>"Let it go! An emotionally resonant story about sisterhood with breathtaking animation and an incredible soundtrack by Idina Menzel."</p>
+          <small class="text-muted">Apr 28, 2025</small>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="review-card">
+          <div class="review-header">
+            <div class="reviewer-avatar">AK</div>
+            <div>
+              <h6>Arjun K</h6>
+              <small>Moana · ★★★★☆</small>
+            </div>
+            <span class="review-sentiment positive">Positive</span>
+          </div>
+          <p>"A vibrant Polynesian adventure with stunning visuals, catchy songs and a fiercely independent heroine. How Far I'll Go is unforgettable!"</p>
+          <small class="text-muted">Apr 20, 2025</small>
+        </div>
+      </div>
+    </div>
+    <div class="text-center mt-4">
+      <a href="reviews.html" class="btn btn-outline-cta">View All Reviews</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4">
+        <h4 class="footer-brand"><span class="brand-cine">CINE</span><span class="brand-ai">AI</span></h4>
+        <p>AI-powered movie reviews and sentiment analysis. Built with Flask, FastAPI & Django.</p>
+      </div>
+      <div class="col-lg-4">
+        <h6>Quick Links</h6>
+        <ul class="footer-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="reviews.html">Reviews</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-4">
+        <h6>Backend APIs</h6>
+        <ul class="footer-links">
+          <li><a href="http://127.0.0.1:5000/">Flask App</a></li>
+          <li><a href="http://127.0.0.1:8001/docs">FastAPI Docs</a></li>
+          <li><a href="http://127.0.0.1:8000/">Django Blog</a></li>
+          <li><a href="http://127.0.0.1:8000/api/posts/">DRF API</a></li>
+        </ul>
+      </div>
+    </div>
+    <hr class="footer-divider"/>
+    <p class="footer-copy">© 2025 CineAI Platform. All rights reserved.</p>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/sentiment.js"></script>
+<script>
+  // Navbar scroll effect
+  window.addEventListener('scroll', () => {
+    document.getElementById('mainNav').classList.toggle('scrolled', window.scrollY > 50);
+  });
+</script>
+</body>
+</html>
